@@ -351,6 +351,7 @@
         .seating-container {
             max-width: 1200px;
             margin: 0 auto;
+            overflow-x: auto;
         }
 
         .classroom-layout {
@@ -498,10 +499,7 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .classroom-layout {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-            }
+            
             
             nav ul {
                 gap: 1.5rem;
@@ -522,9 +520,13 @@
                 font-size: 0.875rem;
             }
 
-            .classroom-layout {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            .seating {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .seating-container {
+                margin: 0;
             }
 
             .gallery-item {
@@ -544,9 +546,7 @@
         }
 
         @media (max-width: 480px) {
-            .classroom-layout {
-                grid-template-columns: 1fr;
-            }
+            
 
             .gallery-item {
                 min-width: 280px;

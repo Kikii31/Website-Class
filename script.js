@@ -1,76 +1,76 @@
 // Student Data - CUSTOMIZE THIS WITH YOUR ACTUAL STUDENT INFORMATION
         const studentsData = {
             1: [
-                { name: "Alice Johnson", id: "S001", email: "alice@school.com", role: "Team Leader" },
-                { name: "Bob Smith", id: "S002", email: "bob@school.com", role: "Note Taker" }
+                { name: "Agha Alfian Hakim", id: "3", ig: "aghaalfian", role: "" },
+                { name: "Muhammad Daaryc Limlyn", id: "21", ig: "daaryc", role: "" }
             ],
             2: [
-                { name: "Charlie Brown", id: "S003", email: "charlie@school.com", role: "Team Leader" },
-                { name: "Diana Prince", id: "S004", email: "diana@school.com", role: "Presenter" }
+                { name: "Inayah Anatasyah", id: "15", ig: "charliebrown", role: "" },
+                { name: "Ririn Dwi Ariani", id: "30", ig: "dianaprince", role: "" }
             ],
             3: [
-                { name: "Edward Norton", id: "S005", email: "edward@school.com", role: "Researcher" },
-                { name: "Fiona Apple", id: "S006", email: "fiona@school.com", role: "Designer" }
+                { name: "Fika Zira Pratiwi", id: "13", ig: "fikazirapratiwi", role: "" },
+                { name: "Asya Namira Putri", id: "7", ig: "asyanamiraputri", role: "" }
             ],
             4: [
-                { name: "George Martin", id: "S007", email: "george@school.com", role: "Coordinator" },
-                { name: "Hannah Lee", id: "S008", email: "hannah@school.com", role: "Writer" }
+                { name: "Refandy Aidil Akbar", id: "29", ig: "refandyaidilakbar", role: "" },
+                { name: "Soni Permana", id: "33", ig: "sonipermana", role: "" }
             ],
             5: [
-                { name: "Ian Malcolm", id: "S009", email: "ian@school.com", role: "Analyst" },
-                { name: "Julia Roberts", id: "S010", email: "julia@school.com", role: "Team Leader" }
+                { name: "Aqila Sri Rahayu", id: "6", ig: "aqilasrirahayu", role: "" },
+                { name: "Farah Nurliza", id: "11", ig: "farahnurliza", role: "" }
             ],
             6: [
-                { name: "Kevin Hart", id: "S011", email: "kevin@school.com", role: "Organizer" },
-                { name: "Laura Palmer", id: "S012", email: "laura@school.com", role: "Researcher" }
+                { name: "Muhammad Ikhsan Maulana", id: "23", ig: "ikhsanmaulana", role: "" },
+                { name: "Miranda Gali", id: "20", ig: "mirandagali", role: "" }
             ],
             7: [
-                { name: "Michael Scott", id: "S013", email: "michael@school.com", role: "Team Leader" },
-                { name: "Nina Williams", id: "S014", email: "nina@school.com", role: "Developer" }
+                { name: "Rakha Atha Farandi Saputra", id: "28", ig: "rakhaatha", role: "" },
+                { name: "Muhammad Zinadine Zidan", id: "24", ig: "zinadinezidan", role: "" }
             ],
             8: [
-                { name: "Oliver Queen", id: "S015", email: "oliver@school.com", role: "Strategist" },
-                { name: "Patricia Chen", id: "S016", email: "patricia@school.com", role: "Coordinator" }
+                { name: "Amanda ", id: "5", ig: "amanda", role: "" },
+                { name: "Syakila Zahara", id: "34", ig: "syakilazahara", role: "" }
             ],
             9: [
-                { name: "Quentin Blake", id: "S017", email: "quentin@school.com", role: "Artist" },
-                { name: "Rachel Green", id: "S018", email: "rachel@school.com", role: "Team Leader" }
+                { name: "Zaidan Early Aditya", id: "35", ig: "zaidan", role: "" },
+                { name: "Krispinus Duanov Sitinjak", id: "16", ig: "krispinus", role: "" }
             ],
             10: [
-                { name: "Samuel Jackson", id: "S019", email: "samuel@school.com", role: "Presenter" },
-                { name: "Tina Turner", id: "S020", email: "tina@school.com", role: "Performer" }
+                { name: "Farizzia Salwa Amanda", id: "12", ig: "farizziasalwa", role: "" },
+                { name: "Luna Amaliyah", id: "17", ig: "lunaamaliyah", role: "" }
             ],
             11: [
-                { name: "Uma Thurman", id: "S021", email: "uma@school.com", role: "Leader" },
-                { name: "Victor Hugo", id: "S022", email: "victor@school.com", role: "Writer" }
+                { name: "Seline Kiraz Siburian", id: "32", ig: "selinekiraz", role: "" },
+                { name: "Dwi Khairiyyah", id: "10", ig: "dwikhairiyyah", role: "" }
             ],
             12: [
-                { name: "Wendy Davis", id: "S023", email: "wendy@school.com", role: "Organizer" },
-                { name: "Xavier Lopez", id: "S024", email: "xavier@school.com", role: "Tech Lead" }
+                { name: "Nuraini", id: "27", ig: "nuraini", role: "" },
+                { name: "Nazwa Aira", id: "25", ig: "nazwaairas", role: "" }
             ],
             13: [
-                { name: "Yara Martinez", id: "S025", email: "yara@school.com", role: "Designer" },
-                { name: "Zachary Lee", id: "S026", email: "zachary@school.com", role: "Developer" }
+                { name: "Debi Febiola", id: "9", ig: "debifebiola", role: "" },
+                { name: "Melati", id: "19", ig: "melati", role: "" }
             ],
             14: [
-                { name: "Amy Adams", id: "S027", email: "amy@school.com", role: "Team Leader" },
-                { name: "Bruce Wayne", id: "S028", email: "bruce@school.com", role: "Strategist" }
+                { name: "Bayu Aditya", id: "8", ig: "bayuaditya", role: "" },
+                { name: "Adhan Hafiz Raihandzah", id: "1", ig: "adhanhafiz", role: "" }
             ],
             15: [
-                { name: "Clara Oswald", id: "S029", email: "clara@school.com", role: "Analyst" },
-                { name: "Derek Morgan", id: "S030", email: "derek@school.com", role: "Coordinator" }
+                { name: "Gandiwa Al Aqsha", id: "14", ig: "gandiwaal", role: "" },
+                { name: "Aditya Rizky Azhar", id: "2", ig: "adityarizky", role: "" }
             ],
             16: [
-                { name: "Elena Gilbert", id: "S031", email: "elena@school.com", role: "Writer" },
-                { name: "Frank Castle", id: "S032", email: "frank@school.com", role: "Security" }
+                { name: "Akbar Nasution", id: "4", ig: "akbarnasution", role: "" },
+                { name: "Muhammad Ibrahim", id: "22", ig: "muhdibrahim", role: "" }
             ],
             17: [
-                { name: "Grace Hopper", id: "S033", email: "grace@school.com", role: "Programmer" },
-                { name: "Henry Cavill", id: "S034", email: "henry@school.com", role: "Actor" }
+                { name: "Mario Terry Al Fachri", id: "18", ig: "mario", role: "" },
+                { name: "", id: "", ig: "", role: "" }
             ],
             18: [
-                { name: "Iris West", id: "S035", email: "iris@school.com", role: "Journalist" },
-                { name: "Jack Sparrow", id: "S036", email: "jack@school.com", role: "Navigator" }
+                { name: "Nicholas Frans Dilo Simalango", id: "26", ig: "nicholasfrans", role: "" },
+                { name: "Sahlan Syahputra Lubis", id: "31", ig: "sahlanlubis", role: "" }
             ]
         };
 
@@ -265,12 +265,12 @@
                     </div>
                     <div class="student-details">
                         <div class="detail-item">
-                            <div class="detail-label">Student ID</div>
+                            <div class="detail-label">Absent Number</div>
                             <div class="detail-value">${student.id}</div>
                         </div>
                         <div class="detail-item">
-                            <div class="detail-label">Email</div>
-                            <div class="detail-value">${student.email}</div>
+                            <div class="detail-label">Instagram</div>
+                            <div class="detail-value">${student.ig}</div>
                         </div>
                     </div>
                 </div>

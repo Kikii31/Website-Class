@@ -351,7 +351,7 @@
         .seating-container {
             max-width: 1200px;
             margin: 0 auto;
-            overflow-x: auto;
+            
         }
 
         .classroom-layout {
@@ -520,14 +520,7 @@
                 font-size: 0.875rem;
             }
 
-            .seating {
-                padding-left: 0;
-                padding-right: 0;
-            }
-
-            .seating-container {
-                margin: 0;
-            }
+            
 
             .gallery-item {
                 min-width: 350px;

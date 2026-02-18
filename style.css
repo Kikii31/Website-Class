@@ -581,6 +581,14 @@
             }
         }
 
+        /* ============================= */
+        /* DESK SPACER (invisible filler) */
+        /* ============================= */
+        .desk-spacer {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
         /* ======= */
         /* FOOTER  */
         /* ======= */
@@ -870,22 +878,47 @@
         .student-card-header {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.25rem;
             margin-bottom: 1rem;
         }
 
+        /* ─── Avatar Base ─── */
         .student-avatar {
-            width: 60px;
-            height: 60px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+            border: 3px solid var(--pale-blue);
+        }
+
+        /* Avatar dengan foto */
+        .student-avatar-photo {
+            background: var(--pale-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .student-avatar-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            border-radius: 50%;
+        }
+
+        /* Avatar fallback huruf (kalau foto tidak ada) */
+        .student-avatar-letter {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            flex-shrink: 0;
         }
 
         .student-info h3 {

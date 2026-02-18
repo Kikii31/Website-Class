@@ -29,7 +29,7 @@
                 { name: "Muhammad Zinadine Zidan", id: "24", ig: "zinadinezidan", role: "" }
             ],
             8: [
-                { name: "Amanda ", id: "5", ig: "amanda", role: "" },
+                { name: "Amanda", id: "5", ig: "amanda", role: "" },
                 { name: "Syakila Zahara", id: "34", ig: "syakilazahara", role: "" }
             ],
             9: [
@@ -73,6 +73,45 @@
                 { name: "Sahlan Syahputra Lubis", id: "31", ig: "sahlanlubis", role: "" }
             ]
         };
+
+        // ─────────────────────────────────────────────
+        // FOTO SISWA   
+        // Taruh foto di folder "photos/" dengan nama file = nomor absen + .jpg
+        // Contoh: photos/3.jpg  → Agha (absen 3)
+        //         photos/21.jpg → Daaryc (absen 21)
+        // Format yang didukung: .jpg .jpeg .png .webp
+        // Kalau foto tidak ada, otomatis pakai avatar huruf
+        // ─────────────────────────────────────────────
+        const PHOTO_FOLDER = 'photos/';
+        const PHOTO_EXT    = '.jpg';   // ← ganti ke .png atau .jpeg kalau perlu
+
+        function getPhotoPath(studentId) {
+            if (!studentId) return null;
+            return `${PHOTO_FOLDER}${studentId}${PHOTO_EXT}`;
+        }
+
+        // Build avatar HTML — foto jika ada, huruf jika tidak
+        function buildAvatar(student) {
+            const photoPath = getPhotoPath(student.id);
+            const fallbackLetter = student.name ? student.name.charAt(0).toUpperCase() : '?';
+
+            if (!student.id) {
+                // Siswa kosong (Desk 17 slot kedua)
+                return `<div class="student-avatar student-avatar-letter">${fallbackLetter}</div>`;
+            }
+
+            return `
+                <div class="student-avatar student-avatar-photo">
+                    <img
+                        src="${photoPath}"
+                        alt="${student.name}"
+                        onerror="this.parentElement.classList.remove('student-avatar-photo');
+                                 this.parentElement.classList.add('student-avatar-letter');
+                                 this.parentElement.innerHTML='${fallbackLetter}';"
+                    />
+                </div>
+            `;
+        }
 
         // Navigation hide/show on scroll
         let lastScrollTop = 0;
@@ -157,10 +196,10 @@
             galleryContainer.scrollLeft = touchScrollLeft - walk;
         });
 
-        // Scroll animations - Enhanced smooth pop-up effect with better timing
+        // Scroll animations
         const observerOptions = {
-            threshold: 0.05, // Trigger earlier for smoother transitions
-            rootMargin: '0px 0px -10% 0px' // Start animating when element is 10% from bottom
+            threshold: 0.05,
+            rootMargin: '0px 0px -10% 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -171,9 +210,8 @@
             });
         }, observerOptions);
 
-        // Section fade observer - for full sections
         const sectionObserverOptions = {
-            threshold: 0.15, // Trigger when 15% of section is visible
+            threshold: 0.15,
             rootMargin: '0px 0px -5% 0px'
         };
 
@@ -181,24 +219,19 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                } else {
-                    // Optional: fade out when scrolling away (comment out if you don't want this)
-                    // entry.target.classList.remove('visible');
                 }
             });
         }, sectionObserverOptions);
 
-        // Observe all animated elements
         document.querySelectorAll('.animate-on-scroll, .fade-in').forEach((el) => {
             observer.observe(el);
         });
 
-        // Observe all section fades
         document.querySelectorAll('.section-fade').forEach((el) => {
             sectionObserver.observe(el);
         });
 
-        // Smooth scroll for navigation links with custom easing
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -206,13 +239,12 @@
                 
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const targetPosition = target.offsetTop - 80; // Account for navbar
+                    const targetPosition = target.offsetTop - 80;
                     const startPosition = window.pageYOffset;
                     const distance = targetPosition - startPosition;
-                    const duration = 800; // Reduced for snappier feel (was 1200)
+                    const duration = 800;
                     let start = null;
 
-                    // Custom easing function for smooth acceleration and deceleration
                     function easeInOutCubic(t) {
                         return t < 0.5 
                             ? 4 * t * t * t 
@@ -245,22 +277,22 @@
             const modalSubtitle = document.getElementById('modalDeskSubtitle');
             const studentList = document.getElementById('modalStudentList');
 
-            // Get student data
             const students = studentsData[deskNumber] || [];
 
-            // Set modal title and subtitle
+            // Filter out empty students (Desk 17 slot kosong)
+            const validStudents = students.filter(s => s.name && s.name.trim() !== '');
+
             modalTitle.textContent = `Desk ${deskNumber}`;
-            modalSubtitle.textContent = `${students.length} Students`;
+            modalSubtitle.textContent = `${validStudents.length} Student${validStudents.length !== 1 ? 's' : ''}`;
             modalContent.classList.remove('special-modal');
 
-            // Generate student cards
-            studentList.innerHTML = students.map((student, index) => `
+            studentList.innerHTML = validStudents.map((student, index) => `
                 <div class="student-card" style="animation-delay: ${index * 0.1}s;">
                     <div class="student-card-header">
-                        <div class="student-avatar">${student.name.charAt(0)}</div>
+                        ${buildAvatar(student)}
                         <div class="student-info">
                             <h3>${student.name}</h3>
-                            <p>${student.role}</p>
+                            <p>${student.role || 'Student'}</p>
                         </div>
                     </div>
                     <div class="student-details">
@@ -270,34 +302,30 @@
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Instagram</div>
-                            <div class="detail-value">${student.ig}</div>
+                            <div class="detail-value">@${student.ig}</div>
                         </div>
                     </div>
                 </div>
             `).join('');
 
-            // Show modal
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scroll
+            document.body.style.overflow = 'hidden';
         }
 
         function closeDeskModal(event) {
-            // Only close if clicking the backdrop or close button
             if (!event || event.target.id === 'deskModal' || event.target.classList.contains('desk-modal-close')) {
                 const modal = document.getElementById('deskModal');
                 modal.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scroll
+                document.body.style.overflow = '';
             }
         }
 
-        // Close modal with ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeDeskModal();
             }
         });
 
-        // Add smooth reveal animation on page load
         window.addEventListener('load', () => {
             document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
                 setTimeout(() => {

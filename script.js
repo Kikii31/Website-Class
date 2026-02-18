@@ -83,7 +83,7 @@
         // Kalau foto tidak ada, otomatis pakai avatar huruf
         // ─────────────────────────────────────────────
         const PHOTO_FOLDER = 'photos/';
-        const PHOTO_EXT    = '.jpg';   // ← ganti ke .png atau .jpeg kalau perlu
+        const PHOTO_EXT    = '.png';   // ← ganti ke .png atau .jpeg kalau perlu
 
         function getPhotoPath(studentId) {
             if (!studentId) return null;
